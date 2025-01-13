@@ -5,7 +5,7 @@ class ListNode:
         self.next = next
 
 class Solution:
-    def mergeNodes(self, head):
+    def mergeNodes(self, head: ListNode) -> ListNode:
         sum_value = 0
         current_node = head.next
         new_head = ListNode(0,None)
