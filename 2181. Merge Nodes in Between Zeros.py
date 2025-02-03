@@ -1,8 +1,10 @@
+from typing import Optional, List
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+        
 class Solution:
     def mergeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
         sum_value = 0
@@ -22,10 +24,28 @@ class Solution:
         # print(new_head)
         return new_head                
 
-if __name__=="__main__":
-    head = ListNode(1,ListNode(0,ListNode(1,ListNode(1,ListNode(0,ListNode(0,ListNode(1,None)))))))
+def array_to_linked_list(arr: List[int]) -> Optional[ListNode]:
+    if not arr:
+        return None
+    head = ListNode(arr[0])
+    current = head
+    for value in arr[1:]:
+        current.next = ListNode(value)
+        current = current.next
+    return head
+
+def linked_list_to_array(head: Optional[ListNode]) -> List[int]:
+    arr = []
+    current = head
+    while current is not None:
+        arr.append(current.val)
+        current = current.next
+    return arr
+
+if __name__ == "__main__":
+    arr = [0,3,1,0,4,5,2,0]
+    head = array_to_linked_list(arr)
     new_head = Solution().mergeNodes(head)
-    print(new_head)
-
-
+    result_arr = linked_list_to_array(new_head)
+    print(result_arr)
         
