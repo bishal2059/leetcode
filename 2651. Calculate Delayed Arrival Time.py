@@ -3,7 +3,7 @@ class Solution:
         output_time = (arrivalTime + delayedTime) % 24
         return output_time
         
-def __main__():
+if __name__ == "__main__":
     arrivalTime = 13
     delayedTime = 11
     delayed_arrival_time = Solution().findDelayedArrivalTime(arrivalTime, delayedTime)
